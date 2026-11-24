@@ -1,0 +1,103 @@
+{
+  "version": "2.2.0",
+  "description": "Epistemic strength, causal/correlational, negation, conditional, quantifier, and EN/ZH register lint lexicons for academic polishing verification.",
+  "tiers": {
+    "1_tentative": {
+      "rank": 1,
+      "en": [
+        "may", "might", "could", "possibly", "potentially", "seem", "seems", "seemed",
+        "appear", "appears", "appeared", "suggest", "suggests", "suggested",
+        "plausible", "tentatively", "hypothesize", "hypothesized", "speculate"
+      ],
+      "zh": [
+        "可能", "或许", "初步表明", "暗示", "推测", "似乎", "有望", "倾向于"
+      ]
+    },
+    "2_moderate": {
+      "rank": 2,
+      "en": [
+        "likely", "probably", "indicate", "indicates", "indicated", "imply", "implies",
+        "generally", "typically", "often", "largely", "mainly", "primarily",
+        "associated with", "correlated with", "tends to", "tend to"
+      ],
+      "zh": [
+        "表明", "提示", "通常", "一般", "主要", "较大程度", "相关", "呈正相关", "呈负相关"
+      ]
+    },
+    "3_strong": {
+      "rank": 3,
+      "en": [
+        "demonstrate", "demonstrates", "demonstrated", "show", "shows", "showed",
+        "confirm", "confirms", "confirmed", "establish", "established", "verify", "verified",
+        "significantly", "substantially", "markedly", "clearly", "robustly", "cause", "causes", "caused"
+      ],
+      "zh": [
+        "证明", "证实", "验证", "显著", "明显", "导致", "引起", "决定"
+      ]
+    },
+    "4_absolute": {
+      "rank": 4,
+      "en": [
+        "prove", "proves", "proved", "proven", "always", "never", "undoubtedly",
+        "unquestionably", "completely", "totally", "entirely", "certainly", "definitely",
+        "impossible", "guarantee", "guarantees", "eliminates all", "100%"
+      ],
+      "zh": [
+        "绝对", "必然", "毫无疑问", "完全", "彻底", "总是", "从不", "必定", "唯一"
+      ]
+    }
+  },
+  "claim_verbs_requiring_that": [
+    "show", "shows", "showed", "shown", "demonstrate", "demonstrates", "demonstrated",
+    "confirm", "confirms", "confirmed", "establish", "establishes", "established",
+    "verify", "verifies", "verified", "prove", "proves", "proved", "proven",
+    "indicate", "indicates", "indicated", "suggest", "suggests", "suggested",
+    "imply", "implies", "implied", "reveal", "reveals", "revealed"
+  ],
+  "causal_vs_correlational": {
+    "correlational_en": ["associated with", "correlated with", "linked to", "related to", "co-occurs with"],
+    "causal_en": ["causes", "caused", "induces", "induced", "leads to", "led to", "results in", "resulted in", "drives", "drove"],
+    "correlational_zh": ["相关", "关联", "伴随"],
+    "causal_zh": ["导致", "引起", "造成", "致使", "引发", "决定"]
+  },
+  "negation_markers": {
+    "en": [
+      "not", "no", "never", "without", "neither", "nor", "none", "nothing",
+      "hardly", "rarely", "seldom", "lack", "lacks", "lacked", "fail", "fails", "failed",
+      "no longer",
+      "don't", "doesn't", "didn't", "isn't", "aren't", "wasn't", "weren't",
+      "can't", "cannot", "couldn't", "won't", "wouldn't", "shouldn't",
+      "haven't", "hasn't", "hadn't"
+    ],
+    "zh": ["并非", "没有", "未能", "并未", "不能", "不可", "无法", "不存在", "未观察到", "未发现", "未发生", "无显著", "不显著", "缺乏", "难以"]
+  },
+  "conditional_markers": {
+    "en": ["if", "unless", "provided that", "assuming", "given that", "only when", "under the condition"],
+    "zh": ["如果", "若", "除非", "前提是", "仅当", "条件下", "当且仅当"]
+  },
+  "quantifier_tiers": {
+    "partial_en": ["some", "few", "a few", "several", "partially", "occasionally", "minority"],
+    "universal_en": ["all", "every", "entire", "universally", "invariably", "exclusively"],
+    "partial_zh": ["部分", "少数", "若干", "局部", "一定程度上"],
+    "universal_zh": ["所有", "全部", "一切", "普遍", "完全"]
+  },
+  "promotional_hype_en": [
+    "groundbreaking", "revolutionary", "game-changing", "unprecedented",
+    "amazing", "awesome", "very good", "very great", "super", "hugely", "tremendously",
+    "world-first", "best ever"
+  ],
+  "promotional_or_oral_zh": [
+    "众所周知", "毫无疑问", "显而易见", "非常大", "特别好", "非常好", "超级",
+    "史无前例", "革命性突破", "彻底解决", "完美解决"
+  ],
+  "chinglish_patterns_en": [
+    {"pattern": "\\bwith the rapid development of\\b", "suggestion": "Consider direct technical framing (e.g., 'Recent advances in ...')"},
+    {"pattern": "\\bmore and more\\b", "suggestion": "Consider 'increasingly' or 'a growing number of'"},
+    {"pattern": "\\bplay a (very )?important role in\\b", "suggestion": "Consider 'is central to', 'is critical for', or 'contributes substantially to'"},
+    {"pattern": "\\bin recent years,?\\s+more and more\\b", "suggestion": "Avoid stacked boilerplate openers; lead with the scientific problem"},
+    {"pattern": "\\bobvious(ly)?\\b", "suggestion": "Consider 'evident', 'pronounced', or 'marked' unless truly self-evident"},
+    {"pattern": "\\baccording to the above\\b", "suggestion": "Consider 'Based on these findings' or 'Collectively'"},
+    {"pattern": "\\bmake a great contribution to\\b", "suggestion": "Consider 'contributes substantially to' or 'advances'"},
+    {"pattern": "\\bhave a (big|large|huge) influence on\\b", "suggestion": "Consider 'substantially affects' or 'strongly influences'"}
+  ]
+}

@@ -1,0 +1,33 @@
+{
+  "schema_version": "1.0.0",
+  "description": "Bilingual academic glossary template for terminology unification and cross-section consistency sweeps.",
+  "terms": [
+    {
+      "term_id": "T001",
+      "preferred_en": "electrochemical impedance spectroscopy",
+      "preferred_zh": "电化学阻抗谱",
+      "abbrev": "EIS",
+      "define_on_first_use": true,
+      "case_sensitive": false,
+      "forbidden_variants": [
+        "electro-chemical impedance spectroscopy",
+        "AC impedance spectra",
+        "电化学交流阻抗谱"
+      ],
+      "domain_note": "Spell out on first occurrence in abstract and main text separately, followed by (EIS)."
+    },
+    {
+      "term_id": "T002",
+      "preferred_en": "solid-electrolyte interphase",
+      "preferred_zh": "固体电解质界面膜",
+      "abbrev": "SEI",
+      "define_on_first_use": true,
+      "case_sensitive": false,
+      "forbidden_variants": [
+        "solid electrolyte interface",
+        "solid-electrolyte interface"
+      ],
+      "domain_note": "Use 'interphase' (not 'interface') per IUPAC/battery electrochemistry convention."
+    }
+  ]
+}

@@ -1,0 +1,65 @@
+{
+  "version": "1.0.0",
+  "edit_types": {
+    "GRAMMAR": {
+      "label_zh": "语法修正",
+      "description": "Subject-verb agreement, tense/aspect, voice, articles (a/an/the), prepositions, pluralization, pronoun agreement.",
+      "default_tier": "A_SAFE_MECHANICAL"
+    },
+    "SYNTAX": {
+      "label_zh": "句法与结构优化",
+      "description": "Dangling modifiers, run-on sentences, sentence splitting/merging for clarity, parallel structure, subject-focus realignment.",
+      "default_tier": "B_STYLE_REGISTER"
+    },
+    "COLLOCATION": {
+      "label_zh": "学术搭配修正",
+      "description": "Verb-noun, adjective-noun, and preposition collocations idiomatic to peer-reviewed academic prose.",
+      "default_tier": "A_SAFE_MECHANICAL"
+    },
+    "PUNCTUATION": {
+      "label_zh": "标点与排版规范",
+      "description": "Academic punctuation, hyphenation of compound modifiers, en-dash for numeric ranges, Oxford comma consistency, CJK/EN punctuation normalization.",
+      "default_tier": "A_SAFE_MECHANICAL"
+    },
+    "TERMINOLOGY": {
+      "label_zh": "术语统一",
+      "description": "Enforcing glossary-mandated terms, fixing cross-section synonym drift, aligning bilingual terminology.",
+      "default_tier": "A_SAFE_MECHANICAL"
+    },
+    "ABBREVIATION": {
+      "label_zh": "缩写与符号规范",
+      "description": "First-occurrence expansion 'Full Name (ABBR)', consistent subsequent abbreviation usage, case/hyphen consistency.",
+      "default_tier": "A_SAFE_MECHANICAL"
+    },
+    "REGISTER": {
+      "label_zh": "学术语气与语域",
+      "description": "Removing colloquialisms, contractions, promotional hype, absolute overstatements, or mismatched person/voice for target genre.",
+      "default_tier": "B_STYLE_REGISTER"
+    },
+    "CHINGLISH": {
+      "label_zh": "中式英语/直译腔消除",
+      "description": "Replacing literal ZH-to-EN calques, redundant nominalizations, and misused logical connectors with idiomatic academic English.",
+      "default_tier": "B_STYLE_REGISTER"
+    },
+    "CONCISION": {
+      "label_zh": "精简冗余",
+      "description": "Tightening wordy phrasing without removing any technical qualifier, scope condition, or quantitative detail.",
+      "default_tier": "B_STYLE_REGISTER"
+    },
+    "HEDGING_PRESERVATION": {
+      "label_zh": "限定强度校准",
+      "description": "Adjusting phrasing to faithfully preserve original epistemic certainty, causal vs. correlational distinction, negation scope, or conditional boundary.",
+      "default_tier": "C_HUMAN_CONFIRM"
+    },
+    "HUMAN_FLAG_ONLY": {
+      "label_zh": "仅标注待人工确认（未擅改）",
+      "description": "Factual ambiguity, missing data/unit, source conflict, or glossary conflict flagged without fabricating or altering facts.",
+      "default_tier": "C_HUMAN_CONFIRM"
+    }
+  },
+  "review_tiers": {
+    "A_SAFE_MECHANICAL": "Objective mechanical/terminology fix; low risk of semantic shift.",
+    "B_STYLE_REGISTER": "Academic fluency, concision, or register improvement; meaning preserved, quick skim recommended.",
+    "C_HUMAN_CONFIRM": "Potential ambiguity, material gap, conflict, or epistemic nuance; requires author sign-off."
+  }
+}

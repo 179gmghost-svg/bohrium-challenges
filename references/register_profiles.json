@@ -1,0 +1,84 @@
+{
+  "version": "1.0.0",
+  "genres": {
+    "journal_article": {
+      "label_zh": "期刊论文（Journal Article）",
+      "tone": "objective, precise, concise, evidence-anchored",
+      "person_policy": "Third person preferred; first-person plural ('we') permitted sparingly for methodological choices and contributions. Avoid singular 'I' and reader-addressing 'you'.",
+      "tense_policy": {
+        "abstract_methods_results": "past tense for completed experiments and observations",
+        "established_facts_figures_tables": "present tense for general truths, equations, and referring to figures/tables ('Fig. 1 shows')",
+        "conclusions_implications": "present tense with appropriate epistemic hedging"
+      },
+      "avoid_patterns": [
+        "promotional hype (groundbreaking, revolutionary, unprecedented, game-changing, very good, super)",
+        "colloquial contractions (don't, can't, won't, isn't, it's)",
+        "vague intensifiers (very, really, quite, a lot of, lots of, huge, awesome)",
+        "Chinglish openers (with the rapid development of, nowadays, in recent years more and more)"
+      ],
+      "citation_and_ref_style": "Preserve exact citation format ([1], \\cite{}, Author et al., Year) and figure/table prefixes (Fig., Table, Eq.)."
+    },
+    "thesis_dissertation": {
+      "label_zh": "学位论文（Thesis / Dissertation）",
+      "tone": "formal, systematic, rigorous, transparent about scope and limitations",
+      "person_policy": "Impersonal or institutional third person ('this study', '本文', '本研究') preferred; avoid colloquial first-person.",
+      "tense_policy": {
+        "literature_review": "present perfect or past tense",
+        "methods_results": "past tense (EN) / completed aspect (ZH)",
+        "general_principles": "present tense"
+      },
+      "avoid_patterns": [
+        "oral fillers (众所周知, 毫无疑问, 显而易见 without citation, 非常大, 特别好)",
+        "unsupported absolute claims (完全解决, 彻底消除, 首次证明 without evidence)",
+        "cross-chapter terminology drift"
+      ],
+      "citation_and_ref_style": "Preserve chapter numbering, equation numbering, and GB/T 7714 or target university citation format."
+    },
+    "grant_proposal": {
+      "label_zh": "基金申请书（Grant Proposal / NSFC / NIH）",
+      "tone": "persuasive yet scientifically grounded, structured, clear gap-to-objective logic",
+      "person_policy": "First-person plural ('we', '本项目', '申请团队') appropriate for research plan and preliminary work.",
+      "tense_policy": {
+        "prior_work": "present perfect or past tense",
+        "proposed_work": "future tense ('will investigate', '拟采用')"
+      },
+      "avoid_patterns": [
+        "empty slogans without technical specificity",
+        "overpromising guaranteed outcomes where feasibility is conditional",
+        "ambiguity between completed preliminary results and proposed future tasks"
+      ],
+      "citation_and_ref_style": "Preserve exact preliminary data metrics, funding codes, and reference numbers."
+    },
+    "peer_review_rebuttal": {
+      "label_zh": "审稿回复（Peer-Review Response / Rebuttal）",
+      "tone": "respectful, constructive, direct, evidence-backed, non-defensive",
+      "person_policy": "First-person plural ('we thank the reviewer', 'we have revised') standard.",
+      "tense_policy": {
+        "revisions_made": "present perfect ('we have added', 'we have clarified')",
+        "manuscript_content": "present tense"
+      },
+      "avoid_patterns": [
+        "defensive or dismissive phrasing ('the reviewer misunderstood', 'obviously')",
+        "unfulfilled promises without concrete line/page/section pointers",
+        "excessive flattery that obscures technical answers"
+      ],
+      "citation_and_ref_style": "Preserve exact reviewer comment IDs (e.g., R1-C2), page/line numbers, and quoted revised text."
+    },
+    "bilingual_abstract": {
+      "label_zh": "中英文摘要（Bilingual Abstract）",
+      "tone": "high information density, self-contained, parallel semantic alignment between ZH and EN",
+      "person_policy": "Third person or concise 'we' in EN; impersonal ('本文', '本研究') in ZH.",
+      "tense_policy": {
+        "background": "present tense",
+        "methods_results": "past tense",
+        "conclusions": "present tense"
+      },
+      "avoid_patterns": [
+        "word-for-word literal translation from Chinese topic-comment structure into awkward English",
+        "introducing claims, numbers, or abbreviations in one language absent from the other",
+        "undefined abbreviations used only once"
+      ],
+      "citation_and_ref_style": "Align every numerical result, unit, sample size, and key term strictly across ZH and EN."
+    }
+  }
+}

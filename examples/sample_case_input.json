@@ -1,0 +1,23 @@
+{
+  "case_id": "illustrative-example-001",
+  "note": "ILLUSTRATIVE MINIMAL EXAMPLE ONLY (示意示例，非正式评测案例)",
+  "genre": "journal_article",
+  "language": "en",
+  "glossary": {
+    "terms": [
+      {
+        "term_id": "T001",
+        "preferred_en": "electrochemical impedance spectroscopy",
+        "preferred_zh": "电化学阻抗谱",
+        "abbrev": "EIS",
+        "define_on_first_use": true,
+        "case_sensitive": false,
+        "forbidden_variants": ["electro-chemical impedance spectroscopy", "AC impedance spectra"]
+      }
+    ]
+  },
+  "output_contract": {
+    "case_id": "illustrative-example-001",
+    "deliverable_type": "academic_language_polishing"
+  }
+}

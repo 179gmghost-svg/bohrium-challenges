@@ -1,0 +1,5 @@
+__pycache__/
+*.pyc
+.DS_Store
+.alp_selftest_tmp/
+demo_output/
