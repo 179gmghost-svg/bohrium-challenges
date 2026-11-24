@@ -1,0 +1,98 @@
+{
+  "version": "1.0.0",
+  "description": "Conservative scientific entity normalization rules and non-merge guardrails for cross-paper KG alignment.",
+  "unicode_replacements": {
+    "α": "alpha",
+    "β": "beta",
+    "γ": "gamma",
+    "δ": "delta",
+    "μ": "micro",
+    "µ": "micro",
+    "–": "-",
+    "—": "-",
+    "−": "-"
+  },
+  "non_merge_scopes": [
+    "paper_specific_instance",
+    "experimental_sample",
+    "metric_observation"
+  ],
+  "non_merge_entity_types": [
+    "Conclusion",
+    "Metric",
+    "Condition"
+  ],
+  "guarded_homonyms": {
+    "DFT": [
+      "Density Functional Theory",
+      "Discrete Fourier Transform"
+    ],
+    "PCA": [
+      "Principal Component Analysis",
+      "Perchloric Acid",
+      "Patient-Controlled Analgesia"
+    ],
+    "ML": [
+      "Machine Learning",
+      "Maximum Likelihood",
+      "Monolayer"
+    ],
+    "MD": [
+      "Molecular Dynamics",
+      "Doctor of Medicine",
+      "Mean Deviation"
+    ],
+    "GNN": [
+      "Graph Neural Network",
+      "Global Nearest Neighbor"
+    ],
+    "HER": [
+      "Hydrogen Evolution Reaction",
+      "Human Epidermal Growth Factor Receptor"
+    ],
+    "OER": [
+      "Oxygen Evolution Reaction",
+      "Oxygen Enhancement Ratio"
+    ],
+    "SEM": [
+      "Scanning Electron Microscopy",
+      "Structural Equation Modeling",
+      "Standard Error of the Mean"
+    ],
+    "TEM": [
+      "Transmission Electron Microscopy",
+      "Transverse Electromagnetic"
+    ],
+    "PES": [
+      "Potential Energy Surface",
+      "Photoelectron Spectroscopy",
+      "Polyethersulfone"
+    ]
+  },
+  "safe_canonical_synonyms": {
+    "x-ray diffraction": "xrd",
+    "x-ray photoelectron spectroscopy": "xps",
+    "density functional theory": "density functional theory",
+    "molecular dynamics": "molecular dynamics",
+    "scanning electron microscopy": "scanning electron microscopy",
+    "transmission electron microscopy": "transmission electron microscopy",
+    "graph neural network": "graph neural network",
+    "graph neural networks": "graph neural network",
+    "large language model": "large language model",
+    "large language models": "large language model",
+    "hydrogen evolution reaction": "hydrogen evolution reaction",
+    "oxygen evolution reaction": "oxygen evolution reaction",
+    "carbon dioxide reduction reaction": "co2 reduction reaction",
+    "co2rr": "co2 reduction reaction",
+    "root mean square error": "rmse",
+    "mean absolute error": "mae",
+    "coefficient of determination": "r2"
+  },
+  "merge_policy": {
+    "require_same_entity_type": true,
+    "allow_merge_only_for_scope": ["concept_class"],
+    "block_if_homonym_conflict": true,
+    "block_if_conditions_differ": true,
+    "preserve_existing_id_on_incremental_update": true
+  }
+}

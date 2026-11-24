@@ -1,0 +1,213 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://bohrium.com/skills/scientific-literature-kg-builder/kg_schema.json",
+  "title": "Scientific Literature Knowledge Graph Schema",
+  "type": "object",
+  "required": [
+    "schema_version",
+    "sources",
+    "nodes",
+    "edges",
+    "alignment_log",
+    "conflict_log",
+    "unreported_items"
+  ],
+  "properties": {
+    "schema_version": { "type": "string", "const": "1.1.0" },
+    "topic": { "type": "string" },
+    "sources": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source_id", "paper_role"],
+        "properties": {
+          "source_id": { "type": "string", "minLength": 1 },
+          "paper_role": { "type": "string", "enum": ["primary", "secondary", "additional"] },
+          "doi": { "type": ["string", "null"] },
+          "title": { "type": ["string", "null"] },
+          "authors": { "type": "array", "items": { "type": "string" } },
+          "license": { "type": ["string", "null"] },
+          "source_hash": { "type": ["string", "null"] },
+          "location_type": { "type": "string", "enum": ["jats_paragraph_id", "pdf_page_extracted", "section_index"] }
+        }
+      }
+    },
+    "nodes": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Node" }
+    },
+    "edges": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/Edge" }
+    },
+    "alignment_log": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/AlignmentDecision" }
+    },
+    "conflict_log": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ConflictRecord" }
+    },
+    "update_history": {
+      "type": "array",
+      "items": { "type": "object" }
+    },
+    "change_records": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/ChangeRecord" }
+    },
+    "quality_audit": {
+      "type": "object",
+      "properties": {
+        "status": { "type": "string", "enum": ["PASS", "FAIL"] },
+        "error_count": { "type": "integer", "minimum": 0 },
+        "warning_count": { "type": "integer", "minimum": 0 },
+        "quotes_verified": { "type": "integer", "minimum": 0 },
+        "quotes_total": { "type": "integer", "minimum": 0 },
+        "contract_fields": { "type": "array", "items": { "type": "string" } }
+      }
+    },
+    "unreported_items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["item", "reason"],
+        "properties": {
+          "item": { "type": "string" },
+          "source_id": { "type": ["string", "null"] },
+          "reason": { "type": "string" }
+        }
+      }
+    }
+  },
+  "$defs": {
+    "Provenance": {
+      "type": "object",
+      "required": ["source_id", "paragraph_id", "location_type", "quote", "evidence_strength"],
+      "properties": {
+        "source_id": { "type": "string", "minLength": 1 },
+        "paragraph_id": { "type": "string", "minLength": 1 },
+        "location_type": {
+          "type": "string",
+          "enum": ["jats_paragraph_id", "pdf_page_extracted", "section_index"]
+        },
+        "page": { "type": ["integer", "null"], "minimum": 1 },
+        "quote": { "type": "string", "minLength": 5 },
+        "evidence_strength": {
+          "type": "string",
+          "enum": ["direct_experimental", "direct_textual", "secondary_citation", "inferred_weak"]
+        },
+        "xml_verified": { "type": "boolean" }
+      }
+    },
+    "Node": {
+      "type": "object",
+      "required": ["id", "name", "type", "provenance"],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "name": { "type": "string", "minLength": 1 },
+        "canonical_key": { "type": "string" },
+        "type": {
+          "type": "string",
+          "enum": [
+            "Researcher",
+            "Material",
+            "Method",
+            "Task",
+            "Metric",
+            "Conclusion",
+            "Dataset",
+            "Condition"
+          ]
+        },
+        "aliases": { "type": "array", "items": { "type": "string" } },
+        "scope": {
+          "type": "string",
+          "enum": ["concept_class", "paper_specific_instance", "experimental_sample", "metric_observation"],
+          "default": "concept_class"
+        },
+        "attributes": { "type": "object" },
+        "source_ids": { "type": "array", "items": { "type": "string" } },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/Provenance" }
+        }
+      }
+    },
+    "Edge": {
+      "type": "object",
+      "required": ["id", "source", "target", "relation", "claim_origin", "provenance"],
+      "properties": {
+        "id": { "type": "string", "minLength": 2 },
+        "source": { "type": "string", "minLength": 2 },
+        "target": { "type": "string", "minLength": 2 },
+        "relation": {
+          "type": "string",
+          "enum": [
+            "USES",
+            "COMPARES",
+            "OUTPERFORMS",
+            "MEASURES",
+            "SUPPORTS",
+            "CONTRADICTS",
+            "DERIVES_FROM",
+            "APPLIES_TO"
+          ]
+        },
+        "claim_origin": {
+          "type": "string",
+          "enum": ["author_primary", "cited_or_paraphrased", "speculative"]
+        },
+        "conditions": { "type": "string" },
+        "numeric_value": { "type": ["string", "number", "null"] },
+        "unit": { "type": ["string", "null"] },
+        "cross_paper": { "type": "boolean", "default": false },
+        "provenance": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/Provenance" }
+        }
+      }
+    },
+    "AlignmentDecision": {
+      "type": "object",
+      "required": ["decision", "entity_a", "entity_b", "reason"],
+      "properties": {
+        "decision": { "type": "string", "enum": ["merged", "kept_separate"] },
+        "entity_a": { "type": "string" },
+        "entity_b": { "type": "string" },
+        "canonical_id": { "type": ["string", "null"] },
+        "rule_applied": { "type": "string" },
+        "reason": { "type": "string" }
+      }
+    },
+    "ConflictRecord": {
+      "type": "object",
+      "required": ["conflict_id", "conflict_type", "involved_ids", "description", "provenance"],
+      "properties": {
+        "conflict_id": { "type": "string" },
+        "conflict_type": {
+          "type": "string",
+          "enum": ["metric_discrepancy", "directional_contradiction", "homonym_collision", "condition_mismatch", "intra_source_conflict"]
+        },
+        "involved_ids": { "type": "array", "items": { "type": "string" } },
+        "description": { "type": "string" },
+        "resolution_policy": { "type": "string" },
+        "provenance": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/Provenance" }
+        }
+      }
+    },
+    "ChangeRecord": {
+      "type": "object",
+      "required": ["change", "reason", "at"],
+      "properties": {
+        "change": { "type": "string" },
+        "reason": { "type": "string" },
+        "at": { "type": "string" }
+      }
+    }
+  }
+}

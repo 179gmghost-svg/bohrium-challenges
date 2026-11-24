@@ -1,0 +1,41 @@
+{
+  "version": "1.0.0",
+  "description": "Reusable scientific knowledge graph query templates supporting subgraph retrieval, cross-paper comparison, conflict auditing, and undeterminable boundary checks.",
+  "queries": [
+    {
+      "query_id": "Q1_entity_neighborhood",
+      "query_type": "entity_neighborhood",
+      "question": "What methods, materials, metrics, and conclusions are directly linked to a target scientific entity, and what are their exact source locations?",
+      "params": {
+        "entity_query": "<replace_with_entity_name_or_id>",
+        "max_hops": 1
+      }
+    },
+    {
+      "query_id": "Q2_cross_paper_shared_concepts",
+      "query_type": "cross_paper_compare",
+      "question": "Which canonical scientific entities appear across both the primary and secondary papers, and how do their paper-specific claims, conditions, or metrics compare?",
+      "params": {
+        "min_sources": 2
+      }
+    },
+    {
+      "query_id": "Q3_conflict_and_evidence_audit",
+      "query_type": "conflict_audit",
+      "question": "Which relations or entity pairs exhibit contradictions, metric discrepancies, homonym collisions, or secondary-only citations?",
+      "params": {
+        "include_secondary_citations": true
+      }
+    },
+    {
+      "query_id": "Q4_directed_path_check",
+      "query_type": "path_check",
+      "question": "Is there a direct or multi-hop evidence-backed relation path between two specified entities, or is the relationship undeterminable from the corpus?",
+      "params": {
+        "source_entity": "<replace_with_source_entity>",
+        "target_entity": "<replace_with_target_entity>",
+        "max_hops": 3
+      }
+    }
+  ]
+}

@@ -1,0 +1,451 @@
+{
+  "case_id": "ILLUSTRATIVE_SYNTHETIC_EXAMPLE_001",
+  "status": "success",
+  "sources": [
+    {
+      "source_id": "paper_primary",
+      "paper_role": "primary",
+      "doi": "10.0000/example.primary.2025"
+    },
+    {
+      "source_id": "paper_secondary",
+      "paper_role": "secondary",
+      "doi": "10.0000/example.secondary.2026"
+    }
+  ],
+  "knowledge_graph": {
+    "node_count": 4,
+    "edge_count": 3,
+    "nodes": [
+      {
+        "id": "n_mat_nife",
+        "name": "NiFe-LDH",
+        "canonical_key": "nife-ldh",
+        "type": "Material",
+        "aliases": [],
+        "scope": "concept_class",
+        "attributes": {},
+        "source_ids": [
+          "paper_primary",
+          "paper_secondary"
+        ],
+        "provenance": [
+          {
+            "source_id": "paper_primary",
+            "paragraph_id": "p-001",
+            "location_type": "jats_paragraph_id",
+            "quote": "NiFe-LDH nanosheets catalyzed the oxygen evolution reaction (OER)",
+            "evidence_strength": "direct_experimental"
+          },
+          {
+            "source_id": "paper_secondary",
+            "paragraph_id": "p-001",
+            "location_type": "jats_paragraph_id",
+            "quote": "NiFe-LDH showed an OER overpotential of 295 mV",
+            "evidence_strength": "direct_experimental"
+          }
+        ]
+      },
+      {
+        "id": "n_task_oer",
+        "name": "oxygen evolution reaction",
+        "canonical_key": "oxygen evolution reaction",
+        "type": "Task",
+        "aliases": [
+          "OER"
+        ],
+        "scope": "concept_class",
+        "attributes": {},
+        "source_ids": [
+          "paper_primary",
+          "paper_secondary"
+        ],
+        "provenance": [
+          {
+            "source_id": "paper_primary",
+            "paragraph_id": "p-001",
+            "location_type": "jats_paragraph_id",
+            "quote": "oxygen evolution reaction (OER) in 1.0 M KOH",
+            "evidence_strength": "direct_experimental"
+          },
+          {
+            "source_id": "paper_secondary",
+            "paragraph_id": "p-001",
+            "location_type": "jats_paragraph_id",
+            "quote": "OER overpotential of 295 mV at 10 mA cm-2",
+            "evidence_strength": "direct_experimental"
+          }
+        ]
+      },
+      {
+        "id": "n_meth_dft_quantum",
+        "name": "Density Functional Theory",
+        "canonical_key": "density functional theory",
+        "type": "Method",
+        "aliases": [
+          "DFT"
+        ],
+        "scope": "concept_class",
+        "attributes": {},
+        "source_ids": [
+          "paper_primary"
+        ],
+        "provenance": [
+          {
+            "source_id": "paper_primary",
+            "paragraph_id": "p-002",
+            "location_type": "jats_paragraph_id",
+            "quote": "Density Functional Theory (DFT) calculations",
+            "evidence_strength": "direct_textual"
+          }
+        ]
+      },
+      {
+        "id": "N_MET_328bbecd",
+        "name": "Discrete Fourier Transform",
+        "canonical_key": "discrete fourier transform",
+        "type": "Method",
+        "aliases": [
+          "DFT"
+        ],
+        "scope": "concept_class",
+        "attributes": {},
+        "source_ids": [
+          "paper_secondary"
+        ],
+        "provenance": [
+          {
+            "source_id": "paper_secondary",
+            "paragraph_id": "p-002",
+            "location_type": "jats_paragraph_id",
+            "quote": "Discrete Fourier Transform (DFT) filter",
+            "evidence_strength": "direct_textual"
+          }
+        ]
+      }
+    ],
+    "edges": [
+      {
+        "id": "e_prim_1",
+        "source": "n_mat_nife",
+        "target": "n_task_oer",
+        "relation": "APPLIES_TO",
+        "claim_origin": "author_primary",
+        "conditions": "1.0 M KOH, 10 mA cm-2",
+        "numeric_value": 240,
+        "unit": "mV",
+        "cross_paper": false,
+        "provenance": [
+          {
+            "source_id": "paper_primary",
+            "paragraph_id": "p-001",
+            "location_type": "jats_paragraph_id",
+            "quote": "overpotential of 240 mV at 10 mA cm-2",
+            "evidence_strength": "direct_experimental"
+          }
+        ]
+      },
+      {
+        "id": "e_prim_2",
+        "source": "n_meth_dft_quantum",
+        "target": "n_mat_nife",
+        "relation": "APPLIES_TO",
+        "claim_origin": "author_primary",
+        "conditions": "adsorption energy estimation",
+        "cross_paper": false,
+        "provenance": [
+          {
+            "source_id": "paper_primary",
+            "paragraph_id": "p-002",
+            "location_type": "jats_paragraph_id",
+            "quote": "estimate intermediate adsorption energies on NiFe-LDH",
+            "evidence_strength": "direct_textual"
+          }
+        ]
+      },
+      {
+        "id": "E_34f14c4e",
+        "source": "n_mat_nife",
+        "target": "n_task_oer",
+        "relation": "APPLIES_TO",
+        "claim_origin": "author_primary",
+        "conditions": "0.1 M KOH, 10 mA cm-2",
+        "numeric_value": 295,
+        "unit": "mV",
+        "cross_paper": false,
+        "provenance": [
+          {
+            "source_id": "paper_secondary",
+            "paragraph_id": "p-001",
+            "location_type": "jats_paragraph_id",
+            "quote": "Under 0.1 M KOH, NiFe-LDH showed an OER overpotential of 295 mV at 10 mA cm-2",
+            "evidence_strength": "direct_experimental"
+          }
+        ]
+      }
+    ]
+  },
+  "alignment_log": [
+    {
+      "decision": "merged",
+      "entity_a": "NiFe-LDH (n_mat_nife)",
+      "entity_b": "NiFe-LDH (paper_secondary)",
+      "canonical_id": "n_mat_nife",
+      "rule_applied": "canonical_concept_match",
+      "reason": "Matched canonical key 'nife-ldh' under concept_class scope with compatible entity type 'Material'."
+    },
+    {
+      "decision": "merged",
+      "entity_a": "oxygen evolution reaction (n_task_oer)",
+      "entity_b": "OER (paper_secondary)",
+      "canonical_id": "n_task_oer",
+      "rule_applied": "canonical_concept_match",
+      "reason": "Matched canonical key 'oer' under concept_class scope with compatible entity type 'Task'."
+    }
+  ],
+  "conflict_log": [
+    {
+      "conflict_id": "CONF_001",
+      "conflict_type": "metric_discrepancy",
+      "involved_ids": [
+        "e_prim_1",
+        "E_34f14c4e"
+      ],
+      "description": "Different numeric values (240 mV vs 295 mV) for n_mat_nife -[APPLIES_TO]-> n_task_oer.",
+      "resolution_policy": "Preserved both paper-scoped measurements without collapsing conditions.",
+      "provenance": [
+        {
+          "source_id": "paper_primary",
+          "paragraph_id": "p-001",
+          "location_type": "jats_paragraph_id",
+          "quote": "overpotential of 240 mV at 10 mA cm-2",
+          "evidence_strength": "direct_experimental"
+        },
+        {
+          "source_id": "paper_secondary",
+          "paragraph_id": "p-001",
+          "location_type": "jats_paragraph_id",
+          "quote": "Under 0.1 M KOH, NiFe-LDH showed an OER overpotential of 295 mV at 10 mA cm-2",
+          "evidence_strength": "direct_experimental"
+        }
+      ]
+    }
+  ],
+  "update_history": [
+    {
+      "operation": "incremental_update",
+      "added_nodes": [
+        "N_MET_328bbecd"
+      ],
+      "merged_nodes": [
+        "n_mat_nife",
+        "n_task_oer"
+      ],
+      "kept_separate_count": 0,
+      "added_edges": [
+        "E_34f14c4e"
+      ]
+    }
+  ],
+  "query_results": [
+    {
+      "query_id": "Q1_nife_neighborhood",
+      "question": "What tasks and methods link to NiFe-LDH?",
+      "status": "answered",
+      "matched_node_ids": [
+        "n_mat_nife",
+        "n_meth_dft_quantum",
+        "n_task_oer"
+      ],
+      "matched_edge_ids": [
+        "E_34f14c4e",
+        "e_prim_1",
+        "e_prim_2"
+      ],
+      "evidence_chains": [
+        {
+          "edge_id": "e_prim_1",
+          "triple": "NiFe-LDH -[APPLIES_TO]-> oxygen evolution reaction",
+          "claim_origin": "author_primary",
+          "conditions": "1.0 M KOH, 10 mA cm-2",
+          "provenance": [
+            {
+              "source_id": "paper_primary",
+              "paragraph_id": "p-001",
+              "location_type": "jats_paragraph_id",
+              "quote": "overpotential of 240 mV at 10 mA cm-2",
+              "evidence_strength": "direct_experimental"
+            }
+          ]
+        },
+        {
+          "edge_id": "e_prim_2",
+          "triple": "Density Functional Theory -[APPLIES_TO]-> NiFe-LDH",
+          "claim_origin": "author_primary",
+          "conditions": "adsorption energy estimation",
+          "provenance": [
+            {
+              "source_id": "paper_primary",
+              "paragraph_id": "p-002",
+              "location_type": "jats_paragraph_id",
+              "quote": "estimate intermediate adsorption energies on NiFe-LDH",
+              "evidence_strength": "direct_textual"
+            }
+          ]
+        },
+        {
+          "edge_id": "E_34f14c4e",
+          "triple": "NiFe-LDH -[APPLIES_TO]-> oxygen evolution reaction",
+          "claim_origin": "author_primary",
+          "conditions": "0.1 M KOH, 10 mA cm-2",
+          "provenance": [
+            {
+              "source_id": "paper_secondary",
+              "paragraph_id": "p-001",
+              "location_type": "jats_paragraph_id",
+              "quote": "Under 0.1 M KOH, NiFe-LDH showed an OER overpotential of 295 mV at 10 mA cm-2",
+              "evidence_strength": "direct_experimental"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "Q2_cross_paper",
+      "question": "Which canonical concepts span both papers and how do their conditions/metrics compare?",
+      "status": "answered",
+      "matched_node_ids": [
+        "n_mat_nife",
+        "n_task_oer"
+      ],
+      "matched_edge_ids": [
+        "e_prim_1",
+        "e_prim_2",
+        "E_34f14c4e"
+      ],
+      "evidence_chains": [
+        {
+          "edge_id": "e_prim_1",
+          "triple": "NiFe-LDH -[APPLIES_TO]-> oxygen evolution reaction",
+          "conditions": "1.0 M KOH, 10 mA cm-2",
+          "numeric_value": 240,
+          "unit": "mV",
+          "provenance": [
+            {
+              "source_id": "paper_primary",
+              "paragraph_id": "p-001",
+              "location_type": "jats_paragraph_id",
+              "quote": "overpotential of 240 mV at 10 mA cm-2",
+              "evidence_strength": "direct_experimental"
+            }
+          ]
+        },
+        {
+          "edge_id": "e_prim_2",
+          "triple": "Density Functional Theory -[APPLIES_TO]-> NiFe-LDH",
+          "conditions": "adsorption energy estimation",
+          "provenance": [
+            {
+              "source_id": "paper_primary",
+              "paragraph_id": "p-002",
+              "location_type": "jats_paragraph_id",
+              "quote": "estimate intermediate adsorption energies on NiFe-LDH",
+              "evidence_strength": "direct_textual"
+            }
+          ]
+        },
+        {
+          "edge_id": "E_34f14c4e",
+          "triple": "NiFe-LDH -[APPLIES_TO]-> oxygen evolution reaction",
+          "conditions": "0.1 M KOH, 10 mA cm-2",
+          "numeric_value": 295,
+          "unit": "mV",
+          "provenance": [
+            {
+              "source_id": "paper_secondary",
+              "paragraph_id": "p-001",
+              "location_type": "jats_paragraph_id",
+              "quote": "Under 0.1 M KOH, NiFe-LDH showed an OER overpotential of 295 mV at 10 mA cm-2",
+              "evidence_strength": "direct_experimental"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "Q3_conflicts",
+      "question": "What homonym collisions or metric discrepancies exist?",
+      "status": "answered",
+      "matched_node_ids": [],
+      "matched_edge_ids": [
+        "E_34f14c4e",
+        "e_prim_1"
+      ],
+      "evidence_chains": [
+        {
+          "conflict_id": "CONF_001",
+          "conflict_type": "metric_discrepancy",
+          "description": "Different numeric values (240 mV vs 295 mV) for n_mat_nife -[APPLIES_TO]-> n_task_oer.",
+          "resolution_policy": "Preserved both paper-scoped measurements without collapsing conditions.",
+          "provenance": [
+            {
+              "source_id": "paper_primary",
+              "paragraph_id": "p-001",
+              "location_type": "jats_paragraph_id",
+              "quote": "overpotential of 240 mV at 10 mA cm-2",
+              "evidence_strength": "direct_experimental"
+            },
+            {
+              "source_id": "paper_secondary",
+              "paragraph_id": "p-001",
+              "location_type": "jats_paragraph_id",
+              "quote": "Under 0.1 M KOH, NiFe-LDH showed an OER overpotential of 295 mV at 10 mA cm-2",
+              "evidence_strength": "direct_experimental"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "query_id": "Q4_undeterminable_path",
+      "question": "Is Discrete Fourier Transform linked to NiFe-LDH?",
+      "status": "undeterminable",
+      "matched_node_ids": [
+        "N_MET_328bbecd",
+        "n_mat_nife"
+      ],
+      "matched_edge_ids": [],
+      "evidence_chains": [],
+      "undeterminable_reason": "No evidence-backed relation path within 3 hops between 'Discrete Fourier Transform' and 'NiFe-LDH' in the provided papers."
+    }
+  ],
+  "unreported_items": [
+    {
+      "item": "Faradaic efficiency",
+      "source_id": "paper_primary",
+      "reason": "Not reported in the provided synthetic text."
+    }
+  ],
+  "change_records": [],
+  "warnings": [],
+  "artifacts": [
+    "knowledge_graph.json",
+    "knowledge_graph.graphml",
+    "knowledge_graph_report.md",
+    "quality_audit.json"
+  ],
+  "quality_audit": {
+    "status": "PASS",
+    "error_count": 0,
+    "warning_count": 1,
+    "quotes_verified": 9,
+    "quotes_total": 9,
+    "contract_fields": [
+      "case_id",
+      "status",
+      "knowledge_graph",
+      "query_results",
+      "unreported_items"
+    ]
+  }
+}
